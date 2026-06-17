@@ -1,0 +1,421 @@
+:root {
+  --border: #d6dbe1;
+  --header: #f4f6f8;
+  --blue: #2563eb;
+  --red: #dc2626;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --outside: #f3f4f6;
+  --event-bg: #eaf2ff;
+  --holiday-bg: #fff1f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+  color: var(--text);
+  background: #f8fafc;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 28px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.share-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.share-box strong {
+  color: #111827;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.secondary {
+  background: #6b7280;
+}
+
+button.danger {
+  background: #dc2626;
+}
+
+button.edit {
+  background: #0f766e;
+}
+
+.icon-btn {
+  background: #111827;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #eef2f7;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs button {
+  background: white;
+  color: #111827;
+  border: 1px solid var(--border);
+}
+
+.tabs button.active {
+  background: var(--blue);
+  color: white;
+}
+
+.tabs .year-btn {
+  background: #111827;
+  color: white;
+}
+
+.tabs .year-label {
+  background: #f59e0b;
+  color: white;
+  cursor: default;
+}
+
+#app {
+  padding: 24px 28px 60px;
+}
+
+.month-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.month-title h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.month-title small {
+  color: var(--muted);
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  background: white;
+}
+
+.weekday {
+  background: var(--header);
+  font-weight: 800;
+  text-align: center;
+  padding: 10px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.weekday.sun {
+  color: var(--red);
+}
+
+.weekday.sat {
+  color: var(--blue);
+}
+
+.day {
+  min-height: 115px;
+  padding: 8px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+}
+
+.day:hover {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+
+.day.outside {
+  background: var(--outside);
+  color: #9ca3af;
+}
+
+.day.sun .date-number {
+  color: var(--red);
+}
+
+.day.sat .date-number {
+  color: var(--blue);
+}
+
+.date-number {
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.holiday {
+  display: block;
+  background: var(--holiday-bg);
+  color: var(--red);
+  border-left: 3px solid var(--red);
+  padding: 3px 5px;
+  margin: 3px 0;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.event {
+  display: block;
+  background: var(--event-bg);
+  color: #1e40af;
+  border-left: 3px solid var(--blue);
+  padding: 4px 5px;
+  margin: 4px 0;
+  font-size: 12px;
+  line-height: 1.35;
+  border-radius: 4px;
+  white-space: pre-line;
+}
+
+.memo-box {
+  margin-top: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.memo-box h3 {
+  margin: 0 0 10px;
+}
+
+.memo-box textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: inherit;
+}
+
+.memo-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.mini-month {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.mini-month h3 {
+  margin: 0 0 8px;
+}
+
+.mini-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 11px;
+  text-align: center;
+  gap: 2px;
+}
+
+.mini-calendar div {
+  padding: 4px 2px;
+  border-radius: 4px;
+}
+
+.mini-weekday {
+  font-weight: 800;
+  background: var(--header);
+}
+
+.mini-day {
+  background: #f9fafb;
+}
+
+.mini-day.has-event {
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+.mini-day.holiday-day {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.mini-day.outside {
+  color: #cbd5e1;
+}
+
+.dialog {
+  border: 0;
+  border-radius: 14px;
+  padding: 20px;
+  width: min(600px, calc(100% - 24px));
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.dialog::backdrop {
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.dialog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog-head h2 {
+  margin: 0;
+}
+
+.label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 800;
+}
+
+.dialog textarea,
+.dialog input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: inherit;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.day-event-item {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.day-event-item-title {
+  white-space: pre-line;
+  font-weight: 800;
+}
+
+.day-event-item-memo {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.day-event-item-actions {
+  margin-top: 8px;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+@media (max-width: 1000px) {
+  .calendar {
+    grid-template-columns: repeat(7, minmax(90px, 1fr));
+  }
+
+  .day {
+    min-height: 100px;
+  }
+
+  .year-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+  }
+
+  .share-box {
+    align-items: flex-start;
+  }
+
+  #app {
+    padding: 16px;
+  }
+
+  .calendar {
+    overflow-x: auto;
+    min-width: 760px;
+  }
+
+  .year-grid {
+    grid-template-columns: 1fr;
+  }
+}
