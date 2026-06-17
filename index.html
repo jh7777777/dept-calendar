@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>부서 월간점검계획</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>부서 월간점검계획</h1>
+      <p class="subtitle">만년형 달력 · 주소 접속자 모두 열람/편집 가능 · 공휴일 자동 반영</p>
+    </div>
+
+    <div class="share-box">
+      <strong>공유용 일정표</strong>
+      <span>주소를 아는 사람은 누구나 편집할 수 있습니다.</span>
+    </div>
+  </header>
+
+  <nav id="tabs" class="tabs"></nav>
+
+  <main id="app"></main>
+
+  <dialog id="dayDialog" class="dialog">
+    <div class="dialog-head">
+      <h2 id="dialogTitle">날짜</h2>
+      <button id="closeDialogBtn" class="icon-btn">×</button>
+    </div>
+
+    <div id="dayEventList" class="day-event-list"></div>
+
+    <hr />
+
+    <label class="label">일정 내용</label>
+    <textarea id="eventTitle" rows="3" placeholder="예: 안전보건경영실&#10;2분기 직무교육"></textarea>
+
+    <label class="label">비고</label>
+    <input id="eventMemo" type="text" placeholder="선택 입력" />
+
+    <div class="dialog-actions">
+      <button id="saveEventBtn">일정 저장</button>
+      <button id="resetEventBtn" class="secondary">입력 초기화</button>
+      <button id="cancelDialogBtn" class="secondary">닫기</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
